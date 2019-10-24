@@ -10,7 +10,9 @@ const CategoryField = (props) => {
           type="radio"
           name="category"
           checked={ checked }
+          onClick={()=> props.checked= true|false}
         />
+        {console.log(props)}
         <label>{ category }</label>
       </div>
     </div>

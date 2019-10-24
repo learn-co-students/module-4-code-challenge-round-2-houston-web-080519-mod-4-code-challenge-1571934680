@@ -9,7 +9,9 @@ class AccountContainer extends Component {
     this.state={
       transactions:[],
       search: "",
-      searchItems:[]
+      searchItems:[],
+      category: null 
+      
      
     }
   }
@@ -22,13 +24,16 @@ class AccountContainer extends Component {
     this.setState({search: value})
     this.setState({searchItems: this.state.transactions.filter((transaction)=> transaction.description.includes(value))})
   }
+  categoryselector(){
+    this.setState({category:  })
+  }
 
   render() {
     console.log(this.state.searchItems)
 
     return (
       <div className="ui grid container">
-        <CategorySelector />
+        <CategorySelector checked={this.state.checked}/>
         <Search transactions={this.state.transactions} handleChange={this.handleChange}/>
         <TransactionsList transactions={this.state.searchItems} />
       </div>
